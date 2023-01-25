@@ -168,3 +168,11 @@ Once you've connected, add these layers to a new project, in addition to your fa
 3. `parcels_analyzed`
 
 You may also want to add a basemap for orientation, along with your ground-truth data.
+
+## Upgrading
+
+To upgrade to the latest version of Tailor, open a new command prompt and run:
+
+```bash
+npm i -g @workspublic/tailor@latest
+```
