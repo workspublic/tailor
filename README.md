@@ -121,6 +121,24 @@ npm i -g @workspublic/tailor
 
 When that finishes, you're ready to get started with Tailor! It's now available on your command line as `tailor`. Keep reading for more details on how to use it.
 
+### Setting environment variables
+
+By default, Tailor will connect to the `tailor` database we created above without supplying a username or password. This works well for macOS users running Postgres.app. Windows users will need to set the following [environment variable](https://en.wikipedia.org/wiki/Environment_variable):
+
+```
+set TAILOR_DB_URI=postgresql://postgres:<password>@localhost/tailor
+```
+
+where `<password>` is the password you set while installing Postgres.
+
+> 💡 *Hint*: if you don't remember what this password is or didn't set a password, try `postgres`.
+
+This variable will last until you close your command prompt. To set an environment variable permanently on Windows, use [`setx`](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/setx):
+
+```
+setx TAILOR_DB_URI=postgresql://postgres:postgres@localhost/tailor
+```
+
 ## Usage
 
 Tailor has two main pieces of functionality: 1) loading your fabric and ground-truth data, and 2) analyzing the fabric.
