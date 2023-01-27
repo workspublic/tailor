@@ -127,6 +127,20 @@ Tailor has two main pieces of functionality: 1) loading your fabric and ground-t
 
 > 💡 *Tip*: you can run `tailor` from your command line to see a list of available commands. For details about a command, run `tailor [command] --help`.
 
+### Setting environment variables
+
+By default, Tailor will connect to the `tailor` database we created above without supplying a username or password. This works well for macOS users running Postgres.app. Windows users will need to set the following [environment variable](https://en.wikipedia.org/wiki/Environment_variable):
+
+```
+set TAILOR_DB_URI=postgresql://postgres:postgres@localhost/tailor
+```
+
+This variable will last until you close your command prompt. To set an environment variable permanently on Windows, use [`setx`](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/setx):
+
+```
+setx TAILOR_DB_URI=postgresql://postgres:postgres@localhost/tailor
+```
+
 ### Loading data
 
 Follow these steps to load in your fabric and ground-truth data.
@@ -176,3 +190,9 @@ To upgrade to the latest version of Tailor, open a new command prompt and run:
 ```bash
 npm i -g @workspublic/tailor@latest
 ```
+
+## Troubleshooting
+
+### Postgres connection errors
+
+If you get an error message on any of the Tailor commands that mentions Postgres or anything that starts with `PG*`,
